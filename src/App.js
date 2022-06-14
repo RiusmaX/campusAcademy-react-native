@@ -17,6 +17,7 @@ import {
 import {
   Colors
 } from 'react-native/Libraries/NewAppScreen'
+import MainNavigator from './navigation/Navigator'
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark'
@@ -27,8 +28,9 @@ const App = () => {
 
   return (
     <NavigationContainer>
-      <SafeAreaView style={backgroundStyle}>
+      <SafeAreaView style={[{ height: '100%' }, backgroundStyle]}>
         <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
+        <MainNavigator />
       </SafeAreaView>
     </NavigationContainer>
   )

@@ -11,21 +11,19 @@ function HomeScreen () {
   }
 
   return (
-    <View>
-      <ScrollView
-        contentInsetAdjustmentBehavior='automatic'
-        style={backgroundStyle}
+    <ScrollView
+      contentInsetAdjustmentBehavior='automatic'
+      style={backgroundStyle}
+    >
+      <Header />
+      <View
+        style={{
+          backgroundColor: isDarkMode ? Colors.black : Colors.white
+        }}
       >
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white
-          }}
-        >
-          <Clock />
-        </View>
-      </ScrollView>
-    </View>
+        <Clock />
+      </View>
+    </ScrollView>
   )
 }
 
