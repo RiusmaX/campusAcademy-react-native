@@ -1,7 +1,8 @@
 const colors = {
   primary: 'orange',
   secondary: 'teal',
-  text: 'black'
+  text: 'black',
+  lightText: 'gray'
 }
 
 export default colors

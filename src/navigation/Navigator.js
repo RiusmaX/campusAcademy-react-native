@@ -3,10 +3,23 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import Icon from 'react-native-vector-icons/Ionicons'
 
 import HomeScreen from '../screens/HomeScreen'
-import RestaurantScreen from '../screens/RestaurantsScreen'
+import RestaurantsScreen from '../screens/RestaurantsScreen'
 import colors from '../style/Colors'
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import RestaurantScreen from '../screens/RestaurantScreen'
 
 const TabNavigator = createBottomTabNavigator()
+
+const StackNavigator = createNativeStackNavigator()
+
+const RestaurantNavigator = () => {
+  return (
+    <StackNavigator.Navigator>
+      <StackNavigator.Screen name='RestaurantsList' component={RestaurantsScreen} />
+      <StackNavigator.Screen name='RestaurantDetails' component={RestaurantScreen} />
+    </StackNavigator.Navigator>
+  )
+}
 
 const MainNavigator = () => {
   return (
@@ -34,7 +47,13 @@ const MainNavigator = () => {
       })}
     >
       <TabNavigator.Screen name='Home' component={HomeScreen} />
-      <TabNavigator.Screen name='Restaurants' component={RestaurantScreen} />
+      <TabNavigator.Screen
+        name='Restaurants'
+        component={RestaurantNavigator}
+        options={{
+          headerShown: false
+        }}
+      />
     </TabNavigator.Navigator>
   )
 }

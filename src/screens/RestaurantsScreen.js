@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import { ScrollView, Text } from 'react-native'
+import { ScrollView, Text, View } from 'react-native'
+import RestaurantsList from '../components/Restaurants/RestaurantsList'
 import { getRestaurants } from '../services/Api'
 
-function RestaurantScreen () {
+function RestaurantsScreen () {
   const [restaurants, setRestaurants] = useState([])
 
   useEffect(() => {
@@ -14,10 +15,10 @@ function RestaurantScreen () {
   }, [])
 
   return (
-    <ScrollView>
-      <Text>{JSON.stringify(restaurants, null, 2)}</Text>
-    </ScrollView>
+    <View>
+      <RestaurantsList restaurants={restaurants} />
+    </View>
   )
 }
 
-export default RestaurantScreen
+export default RestaurantsScreen
