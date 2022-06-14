@@ -11,7 +11,9 @@ function RestaurantsListItem ({ restaurant }) {
 
   return (
     <View style={styles.card}>
-      <TouchableOpacity onPress={() => navigation.navigate('RestaurantDetails')}>
+      <TouchableOpacity
+        onPress={() => navigation.navigate('RestaurantDetails', { id: restaurant._id })}
+      >
         <Image
           style={styles.image}
           source={{ uri: `${STRAPI_URL}${restaurant?.photos[0]?.url}` }}
