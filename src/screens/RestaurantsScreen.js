@@ -1,11 +1,22 @@
-import React from 'react'
-import { Text, View } from 'react-native'
+import React, { useEffect, useState } from 'react'
+import { ScrollView, Text } from 'react-native'
+import { getRestaurants } from '../services/Api'
 
 function RestaurantScreen () {
+  const [restaurants, setRestaurants] = useState([])
+
+  useEffect(() => {
+    const getData = async () => {
+      const data = await getRestaurants()
+      setRestaurants(data)
+    }
+    getData()
+  }, [])
+
   return (
-    <View>
-      <Text>RESTAURANT SCREEN</Text>
-    </View>
+    <ScrollView>
+      <Text>{JSON.stringify(restaurants, null, 2)}</Text>
+    </ScrollView>
   )
 }
 
