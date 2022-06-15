@@ -9,7 +9,6 @@ const ItemSeparator = () => {
       {
         height: '100%',
         width: 5
-        // backgroundColor: 'red'
       }
   }
     />
@@ -21,7 +20,7 @@ function DishesListItem ({ plat }) {
 
   return (
     <View style={{
-      width: SCREEN_WIDTH + 5,
+      width: SCREEN_WIDTH,
       height: 'auto',
       flexDirection: 'row'
     }}
@@ -40,6 +39,9 @@ function DishesListItem ({ plat }) {
           </Text>
           <Text style={styles.description}>
             {plat.description}
+          </Text>
+          <Text style={styles.description}>
+            {plat.price.toFixed(2)} €
           </Text>
         </View>
       </View>

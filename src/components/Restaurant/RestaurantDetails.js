@@ -1,4 +1,4 @@
-import { Linking, Platform, ScrollView, Text, TouchableOpacity, View } from 'react-native'
+import { Linking, Platform, View, Text, TouchableOpacity } from 'react-native'
 import styles from './style/RestaurantDetailsStyle'
 
 function RestaurantDetails ({ restaurant }) {
@@ -14,7 +14,7 @@ function RestaurantDetails ({ restaurant }) {
     }
   }
   return (
-    <ScrollView>
+    <View>
       <TouchableOpacity
         onPress={openMap}
         style={styles.card}
@@ -24,7 +24,7 @@ function RestaurantDetails ({ restaurant }) {
       <View style={styles.card}>
         <Text style={styles.description}>{restaurant.description}</Text>
       </View>
-    </ScrollView>
+    </View>
 
   )
 }
