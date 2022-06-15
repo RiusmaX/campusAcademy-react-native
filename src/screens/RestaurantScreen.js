@@ -1,14 +1,37 @@
-import React from 'react'
-import { Text, View } from 'react-native'
+import { useEffect, useState } from 'react'
+import { Text, View, ScrollView } from 'react-native'
+import DishesList from '../components/Restaurant/DishesList'
+import HeaderRestaurant from '../components/Restaurant/HeaderRestaurant'
+import RestaurantDetails from '../components/Restaurant/RestaurantDetails'
+import { getRestaurantById } from '../services/Api'
 
-function RestaurantScreen ({ route }) {
+function RestaurantScreen ({ route, navigation }) {
+  const [restaurant, setRestaurant] = useState()
   const { id } = route.params
-  console.log(id)
+
+  useEffect(() => {
+    const getData = async () => {
+      const data = await getRestaurantById(id)
+      setRestaurant(data)
+      navigation.setOptions({ title: data.title })
+    }
+    getData()
+  })
+
+  if (!restaurant) {
+    return (
+      <View>
+        <Text>Chargement...</Text>
+      </View>
+    )
+  }
+
   return (
-    <View>
-      <Text>RESTAURANT SCREEN</Text>
-      <Text>{id}</Text>
-    </View>
+    <ScrollView>
+      <HeaderRestaurant restaurant={restaurant} />
+      <RestaurantDetails restaurant={restaurant} />
+      <DishesList dishes={restaurant.plats} />
+    </ScrollView>
   )
 }
 

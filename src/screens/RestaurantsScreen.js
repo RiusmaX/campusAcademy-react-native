@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import { ScrollView, Text, View } from 'react-native'
+import { useEffect, useState } from 'react'
+import { View } from 'react-native'
 import RestaurantsList from '../components/Restaurants/RestaurantsList'
 import { getRestaurants } from '../services/Api'
 

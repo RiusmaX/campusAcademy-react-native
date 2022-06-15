@@ -1,4 +1,3 @@
-import React from 'react'
 import { ScrollView, useColorScheme, View } from 'react-native'
 import { Colors, Header } from 'react-native/Libraries/NewAppScreen'
 import Clock from '../components/Clock'

@@ -1,8 +1,8 @@
-import React from 'react'
+import { Component } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome5'
 
-class Clock extends React.Component {
+class Clock extends Component {
   constructor (props) {
     super(props)
     this.state = {
