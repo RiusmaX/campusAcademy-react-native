@@ -9,7 +9,8 @@ export default StyleSheet.create({
     height: 50,
     borderWidth: 1,
     borderColor: colors.secondary,
-    borderRadius: 5
+    borderRadius: 5,
+    marginVertical: 15
   },
   input: {
     flex: 1,

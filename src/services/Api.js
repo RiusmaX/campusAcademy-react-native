@@ -27,7 +27,17 @@ const getRestaurantById = async (id) => {
   }
 }
 
+const loginUser = async (credentials) => {
+  try {
+    const response = await api.post('/auth/local', credentials)
+    return response.data
+  } catch (error) {
+    console.error(error)
+  }
+}
+
 export {
   getRestaurants,
-  getRestaurantById
+  getRestaurantById,
+  loginUser
 }
