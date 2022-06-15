@@ -74,7 +74,7 @@ const MainNavigator = () => {
 }
 
 const RootNavigator = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [isLoggedIn, setIsLoggedIn] = useState(true)
 
   return isLoggedIn ? <MainNavigator /> : <AuthNavigator />
 
