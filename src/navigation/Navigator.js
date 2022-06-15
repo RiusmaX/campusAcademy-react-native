@@ -6,10 +6,14 @@ import RestaurantsScreen from '../screens/RestaurantsScreen'
 import colors from '../style/Colors'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import RestaurantScreen from '../screens/RestaurantScreen'
+import LoginScreen from '../screens/LoginScreen'
+import { useState } from 'react'
 
 const TabNavigator = createBottomTabNavigator()
 
 const StackNavigator = createNativeStackNavigator()
+
+const AuthStackNavigator = createNativeStackNavigator()
 
 const RestaurantNavigator = () => {
   return (
@@ -17,6 +21,18 @@ const RestaurantNavigator = () => {
       <StackNavigator.Screen name='RestaurantsList' component={RestaurantsScreen} />
       <StackNavigator.Screen name='RestaurantDetails' component={RestaurantScreen} />
     </StackNavigator.Navigator>
+  )
+}
+
+const AuthNavigator = () => {
+  return (
+    <AuthStackNavigator.Navigator
+      screenOptions={{
+        headerShown: false
+      }}
+    >
+      <AuthStackNavigator.Screen name='Login' component={LoginScreen} />
+    </AuthStackNavigator.Navigator>
   )
 }
 
@@ -57,4 +73,17 @@ const MainNavigator = () => {
   )
 }
 
-export default MainNavigator
+const RootNavigator = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+
+  return isLoggedIn ? <MainNavigator /> : <AuthNavigator />
+
+  // =
+  // if (isLoggedIn) {
+  //   return <MainNavigator />
+  // } else {
+  //   return <AuthNavigator />
+  // }
+}
+
+export default RootNavigator
